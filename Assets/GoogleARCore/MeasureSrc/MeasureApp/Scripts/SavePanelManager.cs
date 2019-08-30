@@ -30,7 +30,7 @@ public class SavePanelManager : MonoBehaviour
         PrevieImage.sprite = null;
         m_texture = null;
         m_counter += 1;
-        StartCoroutine(takeScreenshot());
+        StartCoroutine(TakeScreenshot());
     }
     
     public void SendDataAndCloseSavePanel()
@@ -50,19 +50,36 @@ public class SavePanelManager : MonoBehaviour
         
     }
 
-    private IEnumerator takeScreenshot()
+    public IEnumerator TakeScreenshot()
     {
-        BottomPanel.SetActive(false);
-        ScreenCapture.CaptureScreenshot("img1");
-        yield return new WaitForEndOfFrame();
-        string url = Application.persistentDataPath + "/img1";
-        var bytes = File.ReadAllBytes(url);
-        m_texture = new Texture2D(Screen.width, Screen.height);
-        m_texture.LoadImage(bytes);
-        m_sprite = Sprite.Create(m_texture, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f, 0.5f));
-        PrevieImage.sprite = m_sprite;
+        string imageName = "screenshot.png";
+
+        // Take the screenshot
+        ScreenCapture.CaptureScreenshot(imageName);
+
+        //Wait for 4 frames
+        for (int i = 0; i < 5; i++)
+        {
+            yield return null;
+        }
+
+        // Read the data from the file
+        byte[] data = File.ReadAllBytes(Application.persistentDataPath + "/" + imageName);
+
+        // Create the texture
+        Texture2D screenshotTexture = new Texture2D(Screen.width, Screen.height);
+
+        // Load the image
+        screenshotTexture.LoadImage(data);
+
+        // Create a sprite
+        Sprite screenshotSprite = Sprite.Create(screenshotTexture, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f, 0.5f));
+
+        // Set the sprite to the screenshotPreview
+        PrevieImage.sprite = screenshotSprite;
         showPanel();
     }
+
 
     private async Task<bool> getScreenshot()
     {
@@ -75,7 +92,6 @@ public class SavePanelManager : MonoBehaviour
 
     private void showPanel()
     {
-        //Thread.Sleep(100);
         SavePanel.SetActive(true);
     }
 
