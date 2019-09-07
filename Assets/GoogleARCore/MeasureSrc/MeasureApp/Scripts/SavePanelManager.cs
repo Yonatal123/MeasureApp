@@ -6,6 +6,8 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using sharpPDF;
+
 
 public class SavePanelManager : MonoBehaviour
 {
@@ -16,7 +18,11 @@ public class SavePanelManager : MonoBehaviour
     public Image PrevieImage;
     public GameObject BottomPanel;
     public Text PreviewZoomIndication;
-    // Start is called before the first frame update
+
+
+    [SerializeField]
+    private string BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeSP5FwgUDBEW7HaH-ZZ2TLGmzYCXIbPOcTNiXK3SLnj7Ygbw/formResponse";
+
 
     public void Awake()
     {
@@ -28,16 +34,39 @@ public class SavePanelManager : MonoBehaviour
     public void OpenSavePanel()
     {
         PrevieImage.sprite = null;
-        m_texture = null;
-        m_counter += 1;
         StartCoroutine(TakeScreenshot());
     }
-    
-    public void SendDataAndCloseSavePanel()
+
+    public void CancelAndCloseSavePanel()
     {
         BottomPanel.SetActive(true);
         SavePanel.SetActive(false);
     }
+    
+    public void SendDataAndCloseSavePanel()
+    {
+        //StartCoroutine(post());
+        StartCoroutine(createPdf());
+        
+        new NativeShare().AddFile(Application.persistentDataPath + "/Data.pdf")
+            .AddFile(Application.persistentDataPath + "/screenshot.png").Share();
+        BottomPanel.SetActive(true);
+        SavePanel.SetActive(false);
+    }
+
+    private IEnumerator createPdf()
+    {
+        pdfDocument myDoc = new pdfDocument("Palm Measure Application", "", false);
+        pdfPage myFirstPage = myDoc.addPage();
+        //yield return StartCoroutine(myFirstPage.newAddImage(Application.persistentDataPath + "/" + "screenshot.png", 0, 800));
+        myFirstPage.addText("Name: " + NameInputField.text, 0, 700, sharpPDF.Enumerators.predefinedFont.csCourier, 36);
+        myFirstPage.addText("Id: " + IdInputField.text, 0, 650, sharpPDF.Enumerators.predefinedFont.csCourier, 36);
+        myFirstPage.addText("Scale: " + PreviewZoomIndication.text, 0, 600, sharpPDF.Enumerators.predefinedFont.csCourier, 36);
+        myFirstPage.addText("Comments: " + CommentsInputField.text, 0, 550, sharpPDF.Enumerators.predefinedFont.csCourier, 36);
+        myDoc.createPDF(Application.persistentDataPath + "/Data.pdf");
+        yield return null;
+    }
+    // Start is called before the first frame update
     void Start()
     {
         BottomPanel.SetActive(true);
@@ -52,6 +81,7 @@ public class SavePanelManager : MonoBehaviour
 
     public IEnumerator TakeScreenshot()
     {
+        BottomPanel.SetActive(false);
         string imageName = "screenshot.png";
 
         // Take the screenshot
@@ -77,25 +107,32 @@ public class SavePanelManager : MonoBehaviour
 
         // Set the sprite to the screenshotPreview
         PrevieImage.sprite = screenshotSprite;
+
+        
+        NameInputField.text = "";
+        IdInputField.text = "";
+        CommentsInputField.text = "";
         showPanel();
     }
 
-
-    private async Task<bool> getScreenshot()
-    {
-        await Task.Run(() =>
-        {
-            PrevieImage.sprite = m_sprite;
-        });
-        return true;
-    }
 
     private void showPanel()
     {
         SavePanel.SetActive(true);
     }
 
+
+    private IEnumerator post()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("entry.778070382", NameInputField.text);
+        form.AddField("entry.1734551411", IdInputField.text);
+        form.AddField("entry.1614977173", "file:///" + Application.persistentDataPath + "/" + "screenshot.png");
+        byte[] rawData = form.data;
+        WWW www = new WWW(BASE_URL, rawData);
+        yield return www;
+    }
+
     private Sprite m_sprite;
-    private Texture2D m_texture;
-    private int m_counter;
+    private pdfTable m_table = new pdfTable();
 }

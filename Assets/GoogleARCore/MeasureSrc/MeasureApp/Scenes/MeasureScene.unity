@@ -1011,7 +1011,7 @@ GameObject:
   - component: {fileID: 396442760}
   - component: {fileID: 396442759}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CancelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1078,7 +1078,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 627916110}
-        m_MethodName: SendDataAndCloseSavePanel
+        m_MethodName: CancelAndCloseSavePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1319,7 +1319,6 @@ GameObject:
   - component: {fileID: 627916103}
   - component: {fileID: 627916109}
   - component: {fileID: 627916104}
-  - component: {fileID: 627916106}
   - component: {fileID: 627916105}
   - component: {fileID: 627916107}
   - component: {fileID: 627916108}
@@ -1359,9 +1358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstPersonCamera: {fileID: 896679035}
-  DetectedPlanePrefab: {fileID: 1593692551190204, guid: 7cdb7ffb37f4941c49b28a34ad46e5f5,
-    type: 2}
-  AndyVerticalPlanePrefab: {fileID: 1139652755034496, guid: 3dba1642550ba4d159c183ce979f5647,
+  DetectedPlanePrefab: {fileID: 0}
+  AndyVerticalPlanePrefab: {fileID: 1190091649889860, guid: 242a320930b81430ba610f94f9b760c8,
     type: 3}
   AndyHorizontalPlanePrefab: {fileID: 1190091649889860, guid: 242a320930b81430ba610f94f9b760c8,
     type: 3}
@@ -1392,23 +1390,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZoomIndication: {fileID: 2053579576}
---- !u!114 &627916106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627916101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26074b15f9c13404d858bfedb8b8c00c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FirstPersonCamera: {fileID: 0}
-  DetectedPlanePrefab: {fileID: 0}
-  AndyVerticalPlanePrefab: {fileID: 0}
-  AndyHorizontalPlanePrefab: {fileID: 0}
-  AndyPointPrefab: {fileID: 0}
 --- !u!114 &627916107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,6 +1450,7 @@ MonoBehaviour:
   PrevieImage: {fileID: 882105683}
   BottomPanel: {fileID: 1398108168}
   PreviewZoomIndication: {fileID: 1694376642}
+  BASE_URL: https://docs.google.com/forms/d/e/1FAIpQLSeSP5FwgUDBEW7HaH-ZZ2TLGmzYCXIbPOcTNiXK3SLnj7Ygbw/formResponse
 --- !u!1 &660069339
 GameObject:
   m_ObjectHideFlags: 0
