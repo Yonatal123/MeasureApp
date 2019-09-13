@@ -7,13 +7,16 @@ public enum eEventEnum
 {
     Hand1Selected,
     Hand2Selected,
-    ZoomValueChanged
-}
+    ZoomValueChanged,
+    EditModeChanged,
+    ZoomIn,
+    ZoomOut
+  }
 public static class EventManager
 {
-    private static Dictionary<eEventEnum, Action<double>> eventTable = new Dictionary<eEventEnum, Action<double>>();
+    private static Dictionary<eEventEnum, Action<object>> eventTable = new Dictionary<eEventEnum, Action<object>>();
     
-    public static void AddHandler(eEventEnum p_event, Action<double> p_action)
+    public static void AddHandler(eEventEnum p_event, Action<object> p_action)
     {
         if(!eventTable.ContainsKey(p_event))
         {
@@ -25,7 +28,7 @@ public static class EventManager
         }
     }
 
-    public static void Broadcast(eEventEnum p_event, double p_value)
+    public static void Broadcast(eEventEnum p_event, object p_value)
     {
         if(eventTable[p_event] != null)
         {

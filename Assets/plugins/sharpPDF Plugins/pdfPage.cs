@@ -3,7 +3,7 @@ using System.Collections;
 using System.Text;
 using UnityEngine;
 //using System.Drawing;
-
+using System.IO;
 using sharpPDF.Exceptions;
 using sharpPDF.Enumerators;
 
@@ -138,12 +138,14 @@ namespace sharpPDF
 			}
 		}
 
-        //public IEnumerator newAddImage ( string imageName, int X, int Y ) {
-        //          UnityEngine.Networking.UnityWebRequest www = new UnityEngine.Networking.UnityWebRequest(imageName);
-        //          //WWW www = new WWW(imageName);
-        //	yield return www;
-        //	addImage(www.downloadHandler.data ,X,Y, ((UnityEngine.Networking.DownloadHandlerTexture)www.downloadHandler).texture.height, ((UnityEngine.Networking.DownloadHandlerTexture)www.downloadHandler).texture.width);
-        //	//Debug.Log ( "Adding Image Length "+www.bytes.Length+" HEIGTH :"+www.texture.height+" WIDTH :"+www.texture.width );
+        //public IEnumerator newAddImage(string imageName, int X, int Y)
+        //{
+        //    byte[] data = File.ReadAllBytes(imageName);
+        //    Texture2D screenshotTexture = new Texture2D(Screen.width / 3, Screen.height / 2);
+        //    screenshotTexture.LoadImage(data);
+        //    addImage(data, X, Y, screenshotTexture.height, screenshotTexture.width);
+        //    yield return null;
+        //    //Debug.Log ( "Adding Image Length "+www.bytes.Length+" HEIGTH :"+www.texture.height+" WIDTH :"+www.texture.width );
         //}
 
         public IEnumerator newAddImage(string imageName, int X, int Y)

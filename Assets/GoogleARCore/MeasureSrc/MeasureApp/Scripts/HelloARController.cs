@@ -25,6 +25,14 @@ public enum eModelEnum
     HAND_2
 }
 
+public enum eEditMode
+{
+    Heading, 
+    Pitch,
+    Roll,
+    Pan
+}
+
 namespace GoogleARCore.Examples.HelloAR
 {
     using System;
@@ -46,6 +54,10 @@ namespace GoogleARCore.Examples.HelloAR
     /// </summary>
     public class HelloARController : MonoBehaviour
     {
+
+        public Vector2 startPos;
+        public Vector2 direction;
+
         /// <summary>
         /// The first-person camera being used to render the passthrough camera image (i.e. AR
         /// background).
@@ -95,7 +107,6 @@ namespace GoogleARCore.Examples.HelloAR
             //var dropdown = GetComponent<Dropdown>();
             //dropdown.ClearOptions(); 
             //dropdown.AddOptions(list);
-
             Application.targetFrameRate = 60;
             Screen.orientation = ScreenOrientation.LandscapeLeft;
             m_zoomInButton = GameObject.Find("ZoomInButton");
@@ -103,12 +114,24 @@ namespace GoogleARCore.Examples.HelloAR
             m_zoomInButton.GetComponent<Button>().interactable = false;
             m_zoomOutButton.GetComponent<Button>().interactable = false;
 
-            EventManager.AddHandler(eEventEnum.Hand1Selected, new Action<double>((p_val) => {
+            EventManager.AddHandler(eEventEnum.Hand1Selected, new Action<object>((p_val) => {
                 switchModel(eModelEnum.HAND_1);
             }));
 
-            EventManager.AddHandler(eEventEnum.Hand2Selected, new Action<double>((p_val) => {
+            EventManager.AddHandler(eEventEnum.Hand2Selected, new Action<object>((p_val) => {
                 switchModel(eModelEnum.HAND_2);
+            }));
+
+            EventManager.AddHandler(eEventEnum.EditModeChanged, new Action<object>((p_editMode) => {
+                if(p_editMode == null)
+                {
+                    m_currentEditMode = eEditMode.Pan;
+                }
+                else
+                {
+                    eEditMode selectedMode = (eEditMode)p_editMode;
+                    m_currentEditMode = selectedMode;
+                }
             }));
         }
 
@@ -147,6 +170,87 @@ namespace GoogleARCore.Examples.HelloAR
         {
             _UpdateApplicationLifecycle();
 
+            if(m_modelAdded)
+            {
+                if(Input.touchCount == 2)
+                {
+                    pinchZoom();
+                    return;
+                }
+                // Track a single touch as a direction control.
+                if (Input.touchCount > 0)
+                {
+                    Touch singleTouch = Input.GetTouch(0);
+
+                    // Handle finger movements based on TouchPhase
+                    switch (singleTouch.phase)
+                    {
+                        //When a touch has first been detected, change the message and record the starting position
+                        case TouchPhase.Began:
+                            // Record initial touch position.
+                            startPos = singleTouch.position;
+                            break;
+
+                        //Determine if the touch is a moving touch
+                        case TouchPhase.Moved:
+                            // Determine direction by comparing the current touch position with the initial one
+                            direction = singleTouch.position - startPos;
+                            switch(m_currentEditMode)
+                            {
+                                case eEditMode.Roll:
+                                    {
+                                        if (direction.x < 0)
+                                        {
+                                            m_andyObject.transform.Rotate(m_andyObject.transform.rotation.x, m_andyObject.transform.rotation.y, m_andyObject.transform.rotation.z - 3);
+                                        }
+                                        else
+                                        {
+                                            m_andyObject.transform.Rotate(m_andyObject.transform.rotation.x, m_andyObject.transform.rotation.y, m_andyObject.transform.rotation.z + 3);
+                                        }
+                                        break;
+                                    }
+                                case eEditMode.Heading:
+                                    {
+                                        if (direction.x < 0)
+                                        {
+                                            m_andyObject.transform.Rotate(m_andyObject.transform.rotation.x, m_andyObject.transform.rotation.y - 3, m_andyObject.transform.rotation.z);
+                                        }
+                                        else
+                                        {
+                                            m_andyObject.transform.Rotate(m_andyObject.transform.rotation.x, m_andyObject.transform.rotation.y + 3, m_andyObject.transform.rotation.z);
+                                        }
+                                        break;
+                                    }
+                                case eEditMode.Pitch:
+                                    {
+                                        if (direction.y < 0)
+                                        {
+                                            m_andyObject.transform.Rotate(m_andyObject.transform.rotation.x + 3, m_andyObject.transform.rotation.y, m_andyObject.transform.rotation.z);
+                                        }
+                                        else
+                                        {
+                                            m_andyObject.transform.Rotate(m_andyObject.transform.rotation.x - 3, m_andyObject.transform.rotation.y, m_andyObject.transform.rotation.z);
+                                        }
+                                        break;
+                                    }
+                                case eEditMode.Pan:
+                                    {
+                                        m_andyObject.transform.localPosition = new Vector3(m_andyObject.transform.localPosition.x + direction.normalized.x / 100, m_andyObject.transform.localPosition.y,
+                                            m_andyObject.transform.localPosition.z + direction.normalized.y / 100);
+                                        break;
+                                    }
+                            }
+
+                            break;
+
+                        case TouchPhase.Ended:
+                  
+                            break;
+                    }
+                }
+                return;
+            }
+
             // If the player has not touched the screen, we are done with this update.
             Touch touch;
             if (Input.touchCount < 1 || (touch = Input.GetTouch(0)).phase != TouchPhase.Began)
@@ -159,6 +263,7 @@ namespace GoogleARCore.Examples.HelloAR
             {
                 return;
             }
+
 
             // Raycast against the location the player touched to search for planes.
             TrackableHit hit;
@@ -210,11 +315,38 @@ namespace GoogleARCore.Examples.HelloAR
                     }
                     else
                     {
-                       setModelPosition(new Vector3(hit.Pose.position.x, hit.Pose.position.y, hit.Pose.position.z));
+                        setModelPosition(new Vector3(hit.Pose.position.x, hit.Pose.position.y, hit.Pose.position.z));
                     }
 
                     setModelCoreProperties(hit);
                 }
+            }
+        }
+
+
+        private void pinchZoom()
+        {
+            Touch touchZero = Input.GetTouch(0);
+            Touch touchOne = Input.GetTouch(1);
+
+            // Find the position in the previous frame of each touch.
+            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+            // Find the magnitude of the vector (the distance) between the touches in each frame.
+            float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+            float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
+
+            // Find the difference in the distances between each frame.
+            float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+
+            if(deltaMagnitudeDiff > 0)
+            {
+                EventManager.Broadcast(eEventEnum.ZoomOut, null);
+            }
+            else
+            {
+                EventManager.Broadcast(eEventEnum.ZoomIn, null);
             }
         }
 
@@ -317,5 +449,8 @@ namespace GoogleARCore.Examples.HelloAR
         private GameObject m_currentPrefab;
         private GameObject m_modelPanel;
         private eModelEnum m_currentModel = eModelEnum.HAND_1;
+        private Vector2 m_touchDirection;
+        private Vector2 m_touchStartPos;
+        private eEditMode m_currentEditMode = eEditMode.Pan;
     }
 }

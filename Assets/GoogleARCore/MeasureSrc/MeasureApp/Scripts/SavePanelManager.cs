@@ -26,8 +26,9 @@ public class SavePanelManager : MonoBehaviour
 
     public void Awake()
     {
-        EventManager.AddHandler(eEventEnum.ZoomValueChanged, new Action<double>((p_val) => {
-            PreviewZoomIndication.text = "x" + p_val.ToString("F2");
+        EventManager.AddHandler(eEventEnum.ZoomValueChanged, new Action<object>((p_val) => {
+            double value = (double)p_val;
+            PreviewZoomIndication.text = "x" + value.ToString("F2");
         }));
     }
 
@@ -46,12 +47,10 @@ public class SavePanelManager : MonoBehaviour
     public void SendDataAndCloseSavePanel()
     {
         //StartCoroutine(post());
-        StartCoroutine(createPdf());
-        
-        new NativeShare().AddFile(Application.persistentDataPath + "/Data.pdf")
-            .AddFile(Application.persistentDataPath + "/screenshot.png").Share();
-        BottomPanel.SetActive(true);
-        SavePanel.SetActive(false);
+        //StartCoroutine(createPdf());
+        StartCoroutine(snap());
+        new NativeShare().AddFile(Application.persistentDataPath + "/screenshot.png").Share();
+
     }
 
     private IEnumerator createPdf()
@@ -97,6 +96,7 @@ public class SavePanelManager : MonoBehaviour
         byte[] data = File.ReadAllBytes(Application.persistentDataPath + "/" + imageName);
 
         // Create the texture
+        //Texture2D screenshotTexture = new Texture2D(Screen.width, Screen.height);
         Texture2D screenshotTexture = new Texture2D(Screen.width, Screen.height);
 
         // Load the image
@@ -113,6 +113,24 @@ public class SavePanelManager : MonoBehaviour
         IdInputField.text = "";
         CommentsInputField.text = "";
         showPanel();
+    }
+
+    public IEnumerator snap()
+    {
+        BottomPanel.SetActive(false);
+        string imageName = "screenshot.png";
+
+        // Take the screenshot
+        ScreenCapture.CaptureScreenshot(imageName);
+
+        for (int i = 0; i < 5; i++)
+        {
+            yield return null;
+        }
+
+        BottomPanel.SetActive(true);
+        SavePanel.SetActive(false);
+
     }
 
 

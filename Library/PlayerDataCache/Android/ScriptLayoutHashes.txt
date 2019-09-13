@@ -119,7 +119,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 70b5990d93842e2357518f44237e7f47 Assembly-CSharp.dll:GoogleARCore.Examples.Common.PlaneDiscoveryGuide
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
-1444c351d4179adea9b5c651bf15893f Assembly-CSharp.dll:GoogleARCore.Examples.HelloAR.HelloARController
+9fed0d09831eb74c663e4650fa02547e Assembly-CSharp.dll:GoogleARCore.Examples.HelloAR.HelloARController
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 b818207c0b8a805931f7a7989870283e Assembly-CSharp.dll:GoogleARCore.ARCoreBackgroundRenderer
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
@@ -176,3 +176,4 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 f1613fea54e3f9e6a92600ebcf0e1b81 Assembly-CSharp.dll:.ModelPanelManager
+675331c6fc3273a52b7be971c8562909 Assembly-CSharp.dll:.EditPanelManager

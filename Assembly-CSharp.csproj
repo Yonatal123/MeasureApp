@@ -67,6 +67,7 @@
     <Compile Include="Assets\GoogleARCore\MeasureSrc\Common\Scripts\PointcloudVisualizer.cs" />
     <Compile Include="Assets\GoogleARCore\MeasureSrc\Common\Scripts\RawImageVideoPlayer.cs" />
     <Compile Include="Assets\GoogleARCore\MeasureSrc\Common\Scripts\SafeAreaScaler.cs" />
+    <Compile Include="Assets\GoogleARCore\MeasureSrc\MeasureApp\Scripts\EditPanelManager.cs" />
     <Compile Include="Assets\GoogleARCore\MeasureSrc\MeasureApp\Scripts\EventManager.cs" />
     <Compile Include="Assets\GoogleARCore\MeasureSrc\MeasureApp\Scripts\HelloARController.cs" />
     <Compile Include="Assets\GoogleARCore\MeasureSrc\MeasureApp\Scripts\ModelPanelManager.cs" />
