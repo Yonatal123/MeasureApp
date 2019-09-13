@@ -23,16 +23,10 @@ public class ZoomScript : MonoBehaviour
             updateZoomIndication();
         }));
 
-        EventManager.AddHandler(eEventEnum.ZoomIn, new Action<object>((p_val) => {
-            ZoomIn();
+        EventManager.AddHandler(eEventEnum.PinchZoom, new Action<object>((p_val) => {
+            setPinchZoom((float)p_val);
             updateZoomIndication();
         }));
-
-        EventManager.AddHandler(eEventEnum.ZoomOut, new Action<object>((p_val) => {
-            ZoomOut();
-            updateZoomIndication();
-        }));
-
     }
     void Start()
     {
@@ -49,17 +43,25 @@ public class ZoomScript : MonoBehaviour
     {
         setModel();
         m_model.transform.localScale += new Vector3(m_zoomVal, m_zoomVal, m_zoomVal);
-        setZoomValue(true);
+        setZoomValue(true, m_zoomVal);
     }
 
     public void ZoomOut()
     {
         setModel();
         m_model.transform.localScale -= new Vector3(m_zoomVal, m_zoomVal, m_zoomVal);
-        setZoomValue(false);
+        setZoomValue(false, m_zoomVal);
     }
 
-    private void setZoomValue(bool p_add)
+    private void setPinchZoom(float p_scale = 0)
+    {
+        setModel();
+        m_model.transform.localScale += new Vector3(p_scale, p_scale, p_scale);
+        setZoomValue(true, p_scale);
+    }
+
+
+    private void setZoomValue(bool p_add, float p_value)
     {
         switch (m_currentModel)
         {
@@ -67,11 +69,11 @@ public class ZoomScript : MonoBehaviour
                 {
                     if(p_add)
                     {
-                        m_modelsZoomDictionary[eModelEnum.HAND_1] += 0.02;                
+                        m_modelsZoomDictionary[eModelEnum.HAND_1] += p_value;                
                     }
                     else
                     {
-                        m_modelsZoomDictionary[eModelEnum.HAND_1] -= 0.02;
+                        m_modelsZoomDictionary[eModelEnum.HAND_1] -= p_value;
                     }                   
                     break;
                 }
@@ -79,11 +81,11 @@ public class ZoomScript : MonoBehaviour
                 {
                     if(p_add)
                     {
-                        m_modelsZoomDictionary[eModelEnum.HAND_2] += 0.02;
+                        m_modelsZoomDictionary[eModelEnum.HAND_2] += p_value;
                     }
                     else
                     {
-                        m_modelsZoomDictionary[eModelEnum.HAND_2] -= 0.02;
+                        m_modelsZoomDictionary[eModelEnum.HAND_2] -= p_value;
                     }
                     break;
                 }

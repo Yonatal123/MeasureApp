@@ -340,15 +340,8 @@ namespace GoogleARCore.Examples.HelloAR
             // Find the difference in the distances between each frame.
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-            if(deltaMagnitudeDiff > 0)
-            {
-                EventManager.Broadcast(eEventEnum.ZoomOut, null);
-            }
-            else
-            {
-                EventManager.Broadcast(eEventEnum.ZoomIn, null);
-            }
-        }
+            EventManager.Broadcast(eEventEnum.PinchZoom, deltaMagnitudeDiff * -1 / 500);
+         }
 
         private void setModelPosition(Vector3 p_position)
         {

@@ -174,6 +174,6 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SimplePDF
 5372ed2ce39229b1ac910757999a8be2 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
+675331c6fc3273a52b7be971c8562909 Assembly-CSharp.dll:.EditPanelManager
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 f1613fea54e3f9e6a92600ebcf0e1b81 Assembly-CSharp.dll:.ModelPanelManager
-675331c6fc3273a52b7be971c8562909 Assembly-CSharp.dll:.EditPanelManager
