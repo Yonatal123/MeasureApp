@@ -30,7 +30,8 @@ public enum eEditMode
     Heading, 
     Pitch,
     Roll,
-    Pan
+    Pan,
+    Ruller
 }
 
 namespace GoogleARCore.Examples.HelloAR
@@ -54,7 +55,6 @@ namespace GoogleARCore.Examples.HelloAR
     /// </summary>
     public class HelloARController : MonoBehaviour
     {
-
         public Vector2 startPos;
         public Vector2 direction;
 
@@ -84,7 +84,8 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         public GameObject AndyPointPrefab;
 
-
+        public Text MeasureResultLabel;
+ 
         /// <summary>
         /// The rotation in degrees need to apply to model when the Andy model is placed.
         /// </summary>
@@ -135,6 +136,10 @@ namespace GoogleARCore.Examples.HelloAR
             }));
         }
 
+        public void ChangeColor()
+        {
+            EventManager.Broadcast(eEventEnum.ChangeColor, null);
+        }
    
         private void switchModel(eModelEnum p_model)
         {
@@ -195,7 +200,8 @@ namespace GoogleARCore.Examples.HelloAR
                         case TouchPhase.Moved:
                             // Determine direction by comparing the current touch position with the initial one
                             direction = singleTouch.position - startPos;
-                            switch(m_currentEditMode)
+
+                            switch (m_currentEditMode)
                             {
                                 case eEditMode.Roll:
                                     {
@@ -244,7 +250,28 @@ namespace GoogleARCore.Examples.HelloAR
                             break;
 
                         case TouchPhase.Ended:
-                  
+                            {
+                                //if(m_currentEditMode == eEditMode.Ruller)
+                                //{
+                                //    if(m_measureCounter++ % 2 == 0)
+                                //    {
+                                //        m_previousMeasurePoint = new Vector3(singleTouch.position.x, singleTouch.position.y, 0);
+                                //    }
+                                //    else
+                                //    {
+                                //        Vector3[] points = new Vector3[2];
+                                //        points[0] = new Vector3(m_previousMeasurePoint.x, m_previousMeasurePoint.y, 0f);
+                                //        points[1] = new Vector3(singleTouch.position.x, singleTouch.position.y, 0f);
+                                //        EventManager.Broadcast(eEventEnum.DrawLine, points);
+
+                                //        //GL.Begin(GL.LINES);
+                                //        //GL.Color(Color.cyan);
+                                //        //GL.Vertex3(m_previousMeasurePoint.x, m_previousMeasurePoint.y, 0f);
+                                //        //GL.Vertex3(singleTouch.position.x, singleTouch.position.y, 0f);
+                                //        //GL.End();
+                                //    }
+                                //}
+                            }
                             break;
                     }
                 }
@@ -280,30 +307,25 @@ namespace GoogleARCore.Examples.HelloAR
                 {
                     Debug.Log("Hit at back of the current DetectedPlane");
                 }
+                else if (m_currentEditMode == eEditMode.Ruller)
+                {
+                    if(m_measureCounter++ % 2 == 0)
+                    {
+                        m_previousMeasurePoint = hit.Pose.position;
+                    }
+                    else
+                    {
+                        MeasureResultLabel.text = getDistance(m_previousMeasurePoint, hit.Pose.position).ToString();
+                        Vector3[] points = new Vector3[2];
+                        points[0] = new Vector3(m_previousMeasurePoint.x, m_previousMeasurePoint.y, m_previousMeasurePoint.z);
+                        points[1] = new Vector3(hit.Pose.position.x, hit.Pose.position.y, hit.Pose.position.z);
+                        EventManager.Broadcast(eEventEnum.DrawLine, points);
+                    }
+                }
                 else
                 {
                     // Choose the Andy model for the Trackable that got hit.
                     GameObject prefab = AndyHorizontalPlanePrefab;
-                    //if (hit.Trackable is FeaturePoint)
-                    //{
-                    //    prefab = AndyPointPrefab;
-                    //}
-                    //else if (hit.Trackable is DetectedPlane)
-                    //{
-                    //    DetectedPlane detectedPlane = hit.Trackable as DetectedPlane;
-                    //    if (detectedPlane.PlaneType == DetectedPlaneType.Vertical)
-                    //    {
-                    //        prefab = AndyVerticalPlanePrefab;
-                    //    }
-                    //    else
-                    //    {
-                    //        prefab = AndyHorizontalPlanePrefab;
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    prefab = AndyHorizontalPlanePrefab;
-                    //}
 
                     if (!m_modelAdded)
                     {
@@ -323,6 +345,16 @@ namespace GoogleARCore.Examples.HelloAR
             }
         }
 
+        private float getDistance(Vector3 p_firstPos, Vector3 p_secondPos)
+        {
+            float dx = p_firstPos.x - p_secondPos.x;
+            float dy = p_firstPos.y - p_secondPos.y;
+            float dz = p_firstPos.z - p_secondPos.z;
+
+            float distanceMet = (float)Math.Sqrt(dx*dx + dy*dy + dz*dz);
+            return distanceMet * 100; ;
+        }
+
 
         private void pinchZoom()
         {
@@ -340,7 +372,7 @@ namespace GoogleARCore.Examples.HelloAR
             // Find the difference in the distances between each frame.
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-            EventManager.Broadcast(eEventEnum.PinchZoom, deltaMagnitudeDiff * -1 / 500);
+            EventManager.Broadcast(eEventEnum.PinchZoom, deltaMagnitudeDiff * -1 / 1000);
          }
 
         private void setModelPosition(Vector3 p_position)
@@ -445,5 +477,8 @@ namespace GoogleARCore.Examples.HelloAR
         private Vector2 m_touchDirection;
         private Vector2 m_touchStartPos;
         private eEditMode m_currentEditMode = eEditMode.Pan;
+        private int m_measureCounter;
+        private Vector3 m_previousMeasurePoint;
+       // public Material lineMat = new Material("Shader \"Lines/Colored Blended\" {" + "SubShader { Pass { " + "    Blend SrcAlpha OneMinusSrcAlpha " + "    ZWrite Off Cull Off Fog { Mode Off } " + "    BindChannels {" + "      Bind \"vertex\", vertex Bind \"color\", color }" + "} } }");
     }
 }

@@ -10,6 +10,7 @@ public class EditPanelManager : MonoBehaviour
     public Button PitchButton;
     public Button RollButton;
     public Button OpenEditPanelButton;
+    public Button RullerButton;
 
     private int m_toggleCounter;
 
@@ -28,6 +29,7 @@ public class EditPanelManager : MonoBehaviour
         m_editStateButtonsDictionary.Add(HeadingButton, true);
         m_editStateButtonsDictionary.Add(PitchButton, false);
         m_editStateButtonsDictionary.Add(RollButton, false);
+        m_editStateButtonsDictionary.Add(RullerButton, false);
         setButtonsState();
     }
 
@@ -66,6 +68,11 @@ public class EditPanelManager : MonoBehaviour
     public void SetRollState()
     {
         setEditState(RollButton);
+    }
+
+    public void SetRullerState()
+    {
+        setEditState(RullerButton);
     }
 
     private void setEditState(Button p_selectedButton)
@@ -118,6 +125,10 @@ public class EditPanelManager : MonoBehaviour
             if(currentStateButton == RollButton)
             {
                 selectedMode = eEditMode.Roll;
+            }
+            if(currentStateButton == RullerButton)
+            {
+                selectedMode = eEditMode.Ruller;
             }
             EventManager.Broadcast(eEventEnum.EditModeChanged, selectedMode);
         }

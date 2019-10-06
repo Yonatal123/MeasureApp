@@ -9,7 +9,9 @@ public enum eEventEnum
     Hand2Selected,
     ZoomValueChanged,
     EditModeChanged,
-    PinchZoom
+    PinchZoom,
+    ChangeColor,
+    DrawLine
   }
 public static class EventManager
 {

@@ -19,7 +19,7 @@ public class ZoomScript : MonoBehaviour
 
         EventManager.AddHandler(eEventEnum.Hand2Selected, new Action<object>((p_val) => {
             m_currentModel = eModelEnum.HAND_2;
-            m_zoomVal = 0.01f;
+            m_zoomVal = 0.001f;
             updateZoomIndication();
         }));
 
@@ -105,7 +105,7 @@ public class ZoomScript : MonoBehaviour
                 }
             case eModelEnum.HAND_2:
                 {
-                    ZoomIndication.text = "x" + m_modelsZoomDictionary[eModelEnum.HAND_2].ToString("F2");
+                    ZoomIndication.text = "x" + m_modelsZoomDictionary[eModelEnum.HAND_2].ToString("F4");
                     EventManager.Broadcast(eEventEnum.ZoomValueChanged, m_modelsZoomDictionary[eModelEnum.HAND_2]);
                     break;
                 }
