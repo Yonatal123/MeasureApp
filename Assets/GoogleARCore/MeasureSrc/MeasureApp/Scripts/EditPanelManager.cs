@@ -129,8 +129,14 @@ public class EditPanelManager : MonoBehaviour
             if(currentStateButton == RullerButton)
             {
                 selectedMode = eEditMode.Ruller;
+                m_isInRullerMode = true;
             }
             EventManager.Broadcast(eEventEnum.EditModeChanged, selectedMode);
+            if(m_isInRullerMode && selectedMode != eEditMode.Ruller)
+            {
+                m_isInRullerMode = false;
+                EventManager.Broadcast(eEventEnum.ExitRuller, null);
+            }
         }
     }
 
@@ -148,5 +154,7 @@ public class EditPanelManager : MonoBehaviour
             }
         }
     }
+
+    private bool m_isInRullerMode;
 }
 

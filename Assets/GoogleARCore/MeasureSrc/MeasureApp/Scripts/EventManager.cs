@@ -11,7 +11,9 @@ public enum eEventEnum
     EditModeChanged,
     PinchZoom,
     ChangeColor,
-    DrawLine
+    DrawLine,
+    AddMeasurePoint,
+    ExitRuller
   }
 public static class EventManager
 {

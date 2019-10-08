@@ -85,6 +85,8 @@ namespace GoogleARCore.Examples.HelloAR
         public GameObject AndyPointPrefab;
 
         public Text MeasureResultLabel;
+
+        public GameObject PointIconPrefab;
  
         /// <summary>
         /// The rotation in degrees need to apply to model when the Andy model is placed.
@@ -133,6 +135,11 @@ namespace GoogleARCore.Examples.HelloAR
                     eEditMode selectedMode = (eEditMode)p_editMode;
                     m_currentEditMode = selectedMode;
                 }
+            }));
+
+            EventManager.AddHandler(eEventEnum.ExitRuller, new System.Action<object>((p_obj) =>
+            {
+                m_measureCounter = 0;
             }));
         }
 
@@ -251,26 +258,6 @@ namespace GoogleARCore.Examples.HelloAR
 
                         case TouchPhase.Ended:
                             {
-                                //if(m_currentEditMode == eEditMode.Ruller)
-                                //{
-                                //    if(m_measureCounter++ % 2 == 0)
-                                //    {
-                                //        m_previousMeasurePoint = new Vector3(singleTouch.position.x, singleTouch.position.y, 0);
-                                //    }
-                                //    else
-                                //    {
-                                //        Vector3[] points = new Vector3[2];
-                                //        points[0] = new Vector3(m_previousMeasurePoint.x, m_previousMeasurePoint.y, 0f);
-                                //        points[1] = new Vector3(singleTouch.position.x, singleTouch.position.y, 0f);
-                                //        EventManager.Broadcast(eEventEnum.DrawLine, points);
-
-                                //        //GL.Begin(GL.LINES);
-                                //        //GL.Color(Color.cyan);
-                                //        //GL.Vertex3(m_previousMeasurePoint.x, m_previousMeasurePoint.y, 0f);
-                                //        //GL.Vertex3(singleTouch.position.x, singleTouch.position.y, 0f);
-                                //        //GL.End();
-                                //    }
-                                //}
                             }
                             break;
                     }
@@ -309,9 +296,10 @@ namespace GoogleARCore.Examples.HelloAR
                 }
                 else if (m_currentEditMode == eEditMode.Ruller)
                 {
-                    if(m_measureCounter++ % 2 == 0)
+                    if(m_measureCounter++ == 0)
                     {
                         m_previousMeasurePoint = hit.Pose.position;
+                        //Instantiate(PointIconPrefab, m_previousMeasurePoint, Quaternion.identity);
                     }
                     else
                     {
@@ -319,8 +307,12 @@ namespace GoogleARCore.Examples.HelloAR
                         Vector3[] points = new Vector3[2];
                         points[0] = new Vector3(m_previousMeasurePoint.x, m_previousMeasurePoint.y, m_previousMeasurePoint.z);
                         points[1] = new Vector3(hit.Pose.position.x, hit.Pose.position.y, hit.Pose.position.z);
+                        //Instantiate(PointIconPrefab, hit.Pose.position, Quaternion.identity);
                         EventManager.Broadcast(eEventEnum.DrawLine, points);
+                        m_previousMeasurePoint = hit.Pose.position;
                     }
+
+                    EventManager.Broadcast(eEventEnum.AddMeasurePoint, new MeasurePoint(PointIconPrefab, hit.Pose.position));
                 }
                 else
                 {
