@@ -87,7 +87,9 @@ namespace GoogleARCore.Examples.HelloAR
         public Text MeasureResultLabel;
 
         public GameObject PointIconPrefab;
- 
+
+        public GameObject MeasureTextPrefab;
+
         /// <summary>
         /// The rotation in degrees need to apply to model when the Andy model is placed.
         /// </summary>
@@ -307,8 +309,10 @@ namespace GoogleARCore.Examples.HelloAR
                         Vector3[] points = new Vector3[2];
                         points[0] = new Vector3(m_previousMeasurePoint.x, m_previousMeasurePoint.y, m_previousMeasurePoint.z);
                         points[1] = new Vector3(hit.Pose.position.x, hit.Pose.position.y, hit.Pose.position.z);
-                        //Instantiate(PointIconPrefab, hit.Pose.position, Quaternion.identity);
+                
                         EventManager.Broadcast(eEventEnum.DrawLine, points);
+                        EventManager.Broadcast(eEventEnum.DrawMeasureText, new MeasureText(MeasureTextPrefab, getMidPoint(m_previousMeasurePoint, hit.Pose.position), 
+                            getDistance(m_previousMeasurePoint, hit.Pose.position).ToString("#.00")));
                         m_previousMeasurePoint = hit.Pose.position;
                     }
 
@@ -347,7 +351,11 @@ namespace GoogleARCore.Examples.HelloAR
             return distanceMet * 100; ;
         }
 
-
+        private Vector3 getMidPoint(Vector3 p_firstPoint, Vector3 p_secondPoint)
+        {
+            return (p_firstPoint + p_secondPoint) / 2f;
+        }
+        
         private void pinchZoom()
         {
             Touch touchZero = Input.GetTouch(0);

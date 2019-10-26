@@ -13,7 +13,8 @@ public enum eEventEnum
     ChangeColor,
     DrawLine,
     AddMeasurePoint,
-    ExitRuller
+    ExitRuller,
+    DrawMeasureText
   }
 public static class EventManager
 {
