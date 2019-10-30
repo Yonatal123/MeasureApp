@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\yonat\\MeasureApp\\Temp\\gradleOut\\build\\intermediates\\res\\merged\\debug\\raw_keep_arcore.xml.flat",
+        "source": "C:\\Users\\yonat\\.gradle\\caches\\transforms-2\\files-2.1\\65a150a7a8abc90ebb9c9a35ee45bed5\\res\\raw\\keep_arcore.xml"
+    },
+    {
+        "merged": "C:\\Users\\yonat\\MeasureApp\\Temp\\gradleOut\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_app_icon.png.flat",
+        "source": "C:\\Users\\yonat\\MeasureApp\\Temp\\gradleOut\\src\\main\\res\\mipmap-mdpi\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\yonat\\MeasureApp\\Temp\\gradleOut\\build\\intermediates\\res\\merged\\debug\\layout___arcore_education.xml.flat",
+        "source": "C:\\Users\\yonat\\.gradle\\caches\\transforms-2\\files-2.1\\65a150a7a8abc90ebb9c9a35ee45bed5\\res\\layout\\__arcore_education.xml"
+    },
+    {
+        "merged": "C:\\Users\\yonat\\MeasureApp\\Temp\\gradleOut\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_app_banner.png.flat",
+        "source": "C:\\Users\\yonat\\MeasureApp\\Temp\\gradleOut\\src\\main\\res\\drawable-xhdpi\\app_banner.png"
+    }
+]

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ColorPanelManager : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class ColorPanelManager : MonoBehaviour
     public void OpenPanel()
     {
         ColorPanel.SetActive(true);
+        EventManager.Broadcast(eEventEnum.ChangeColorMode, null);
     }
 
-    public void ClosePanel()
+    public void Awake()
     {
-        closePanel();
+        EventManager.AddHandler(eEventEnum.ChangeColor, new Action<object>((p_val) => {
+            closePanel();
+        }));
     }
+
     void Start()
     {
         closePanel();

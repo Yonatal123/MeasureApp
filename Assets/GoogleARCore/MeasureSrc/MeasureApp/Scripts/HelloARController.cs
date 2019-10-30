@@ -143,11 +143,16 @@ namespace GoogleARCore.Examples.HelloAR
             {
                 m_measureCounter = 0;
             }));
-        }
 
-        public void ChangeColor()
-        {
-            EventManager.Broadcast(eEventEnum.ChangeColor, null);
+            EventManager.AddHandler(eEventEnum.ChangeColorMode, new System.Action<object>((p_obj) =>
+            {
+                m_isChangeColorMode = true;
+            }));
+
+            EventManager.AddHandler(eEventEnum.ChangeColor, new System.Action<object>((p_obj) =>
+            {
+                m_isChangeColorMode = false;
+            }));
         }
    
         private void switchModel(eModelEnum p_model)
@@ -183,6 +188,11 @@ namespace GoogleARCore.Examples.HelloAR
         public void Update()
         {
             _UpdateApplicationLifecycle();
+
+            if(m_isChangeColorMode)
+            {
+                return;
+            }
 
             if(m_modelAdded)
             {
@@ -479,6 +489,7 @@ namespace GoogleARCore.Examples.HelloAR
         private eEditMode m_currentEditMode = eEditMode.Pan;
         private int m_measureCounter;
         private Vector3 m_previousMeasurePoint;
+        private bool m_isChangeColorMode;
        // public Material lineMat = new Material("Shader \"Lines/Colored Blended\" {" + "SubShader { Pass { " + "    Blend SrcAlpha OneMinusSrcAlpha " + "    ZWrite Off Cull Off Fog { Mode Off } " + "    BindChannels {" + "      Bind \"vertex\", vertex Bind \"color\", color }" + "} } }");
     }
 }

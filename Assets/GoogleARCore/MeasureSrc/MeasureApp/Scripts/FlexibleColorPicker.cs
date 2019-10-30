@@ -159,7 +159,10 @@ public class FlexibleColorPicker : MonoBehaviour {
     }
 
 
-
+    public void ChangeColor()
+    {
+        EventManager.Broadcast(eEventEnum.ChangeColor, Fcb.color);
+    }
 
 
 

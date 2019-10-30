@@ -1,0 +1,249 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:1-36:12
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:17:1-46:12
+MERGED from [:arcore_rendering_utils:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\76eb1895b21fba823b6ac94cddd2d8f8\AndroidManifest.xml:2:1-11:12
+MERGED from [:arcore_unity:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\bdb56970c39959e3c7f8d4f376c60295\AndroidManifest.xml:2:1-11:12
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:2:1-19:12
+MERGED from [:unityandroidpermissions:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\b0d853b2a2a3dc79a41bda3a920e2eed\AndroidManifest.xml:6:1-15:12
+MERGED from [:unitygar:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\b5b130789e75cd441c8367fdcd592be2\AndroidManifest.xml:2:1-11:12
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:1-36:12
+	package
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:117-149
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:174-199
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:70-116
+	xmlns:android
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:150-173
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+	android:installLocation
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:2:200-240
+uses-sdk
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:3:3-72
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:3:3-72
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:3:3-72
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:26:5-28:41
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:26:5-28:41
+MERGED from [:arcore_rendering_utils:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\76eb1895b21fba823b6ac94cddd2d8f8\AndroidManifest.xml:7:5-9:41
+MERGED from [:arcore_rendering_utils:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\76eb1895b21fba823b6ac94cddd2d8f8\AndroidManifest.xml:7:5-9:41
+MERGED from [:arcore_unity:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\bdb56970c39959e3c7f8d4f376c60295\AndroidManifest.xml:7:5-9:41
+MERGED from [:arcore_unity:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\bdb56970c39959e3c7f8d4f376c60295\AndroidManifest.xml:7:5-9:41
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:7:5-44
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:7:5-44
+MERGED from [:unityandroidpermissions:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\b0d853b2a2a3dc79a41bda3a920e2eed\AndroidManifest.xml:11:5-13:41
+MERGED from [:unityandroidpermissions:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\b0d853b2a2a3dc79a41bda3a920e2eed\AndroidManifest.xml:11:5-13:41
+MERGED from [:unitygar:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\b5b130789e75cd441c8367fdcd592be2\AndroidManifest.xml:7:5-9:41
+MERGED from [:unitygar:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\b5b130789e75cd441c8367fdcd592be2\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:3:3-72
+INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:3:3-72
+	android:targetSdkVersion
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:3:40-69
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:3:13-39
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml
+supports-screens
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:4:3-163
+	android:largeScreens
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:4:47-74
+	android:smallScreens
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:4:104-131
+	android:normalScreens
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:4:75-103
+	android:xlargeScreens
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:4:132-160
+	android:anyDensity
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:4:21-46
+uses-feature#android.hardware.camera.ar
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:5:3-85
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:9:5-11:35
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:9:5-11:35
+	android:required
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:5:59-82
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:5:17-58
+application
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:6:3-27:17
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:30:5-44:19
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:30:5-44:19
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:13:5-17:19
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:13:5-17:19
+	android:label
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:6:48-80
+	android:icon
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:6:16-47
+	android:banner
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:6:145-182
+	android:theme
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:6:81-122
+	android:isGame
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:6:123-144
+activity#com.unity3d.player.UnityPlayerActivity
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:7:5-14:16
+	android:screenOrientation
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:7:102-140
+	android:label
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:7:69-101
+	android:launchMode
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:7:141-172
+	android:hardwareAccelerated
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:7:355-390
+	android:configChanges
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:7:173-354
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:7:15-68
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:8:7-12:23
+action#android.intent.action.MAIN
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:9:9-61
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:9:17-58
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:10:9-69
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:10:19-66
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:11:9-78
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:11:19-75
+meta-data#unityplayer.UnityActivity
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:13:7-82
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:13:59-79
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:13:18-58
+meta-data#com.google.ar.core.min_apk_version
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:16:5-94
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:33:9-35:41
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:33:9-35:41
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:16:66-91
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:16:16-65
+activity#com.google.ar.core.InstallActivity
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:18:5-284
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:37:9-43:80
+MERGED from [:arcore_client:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\65a150a7a8abc90ebb9c9a35ee45bed5\AndroidManifest.xml:37:9-43:80
+	android:excludeFromRecents
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:18:127-160
+	android:launchMode
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:18:186-216
+	android:exported
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:18:161-185
+	android:configChanges
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:18:65-126
+	android:theme
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:18:217-281
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:18:15-64
+meta-data#com.google.ar.core
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:19:5-77
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:14:9-16:40
+MERGED from [:google_ar_required:] C:\Users\yonat\.gradle\caches\transforms-2\files-2.1\3aef4af9f0de24c1d5b9f0007168ed60\AndroidManifest.xml:14:9-16:40
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:19:50-74
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:19:16-49
+meta-data#unity.tango-enable
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:20:5-73
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:20:50-70
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:20:16-49
+meta-data#unityplayer.SkipPermissionsDialog
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:21:5-88
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:21:65-85
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:21:16-64
+meta-data#unity.build-id
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:22:5-101
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:22:46-98
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:22:16-45
+meta-data#unity.splash-mode
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:23:5-69
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:23:49-66
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:23:16-48
+meta-data#unity.splash-enable
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:24:5-74
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:24:51-71
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:24:16-50
+meta-data#android.max_aspect
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:25:5-72
+	android:value
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:25:50-69
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:25:16-49
+provider#com.yasirkula.unity.UnitySSContentProvider
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:26:5-177
+	android:grantUriPermissions
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:26:140-174
+	android:authorities
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:26:73-114
+	android:exported
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:26:115-139
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:26:15-72
+uses-feature#0x00020000
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:28:3-52
+	android:glEsVersion
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:28:17-49
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:29:3-63
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:29:20-60
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:30:3-65
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:30:20-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:31:3-106
+	android:maxSdkVersion
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:31:77-103
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:31:20-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:32:3-105
+	android:maxSdkVersion
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:32:76-102
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:32:20-75
+uses-feature#android.hardware.touchscreen
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:33:3-88
+	android:required
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:33:61-85
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:33:17-60
+uses-feature#android.hardware.touchscreen.multitouch
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:34:3-99
+	android:required
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:34:72-96
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:34:17-71
+uses-feature#android.hardware.touchscreen.multitouch.distinct
+ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:35:3-108
+	android:required
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:35:81-105
+	android:name
+		ADDED from C:\Users\yonat\MeasureApp\Temp\gradleOut\src\main\AndroidManifest.xml:35:17-80

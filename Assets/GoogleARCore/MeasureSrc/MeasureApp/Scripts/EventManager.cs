@@ -11,6 +11,7 @@ public enum eEventEnum
     EditModeChanged,
     PinchZoom,
     ChangeColor,
+    ChangeColorMode,
     DrawLine,
     AddMeasurePoint,
     ExitRuller,
