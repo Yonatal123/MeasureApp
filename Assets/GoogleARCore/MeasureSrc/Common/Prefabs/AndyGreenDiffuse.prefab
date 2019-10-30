@@ -1705,6 +1705,7 @@ GameObject:
   - component: {fileID: 400046}
   - component: {fileID: 3300044}
   - component: {fileID: 2300044}
+  - component: {fileID: 5910949412753139677}
   m_Layer: 0
   m_Name: PalmTop
   m_TagString: Untagged
@@ -1771,6 +1772,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5910949412753139677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772814656e4c5ce4bb14b6f99f6b80c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &100048
 GameObject:
   m_ObjectHideFlags: 0
