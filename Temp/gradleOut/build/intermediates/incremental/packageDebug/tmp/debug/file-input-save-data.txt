@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Oct 30 21:31:07 IST 2019
+#Fri Dec 06 14:22:26 IST 2019
 210.set=ASSET
 2.path=bin/Data/Managed/UnityEngine.TextRenderingModule.dll
 14.set=ASSET

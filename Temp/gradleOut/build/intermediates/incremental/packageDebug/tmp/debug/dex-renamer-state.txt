@@ -1,4 +1,4 @@
-#Wed Oct 30 21:31:06 IST 2019
+#Fri Dec 06 14:22:26 IST 2019
 base.0=C\:\\Users\\yonat\\MeasureApp\\Temp\\gradleOut\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.1=classes.dex
 renamed.1=classes2.dex

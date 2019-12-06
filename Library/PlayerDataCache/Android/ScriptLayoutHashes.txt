@@ -128,7 +128,7 @@ b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 08ee418b801850b56a351565b9c8bb78 Assembly-CSharp.dll:TMPro.TMP_TextEventHandler
 47930f3b40e24ef5b3b5e3d9ada7097a Assembly-CSharp.dll:TMPro.Examples.Benchmark01
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MaterialChanger
-595c391f8a344269a5084d66cb559478 Assembly-CSharp.dll:.ColorPanelManager
+79b6edf95130768360c7b190dc5cf9fd Assembly-CSharp.dll:.ColorPanelManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MeasureToolDrawer
 b818207c0b8a805931f7a7989870283e Assembly-CSharp.dll:GoogleARCore.ARCoreBackgroundRenderer
 415380ae266a9ce80855c0d6ac8421da Assembly-CSharp.dll:.FlexibleColorPicker

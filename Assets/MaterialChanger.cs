@@ -14,8 +14,10 @@ public class MaterialChanger : MonoBehaviour
     public void Awake()
     {
         EventManager.AddHandler(eEventEnum.ChangeColor, new Action<object>((p_val) => {
-            m_material.color = (Color)p_val;
-        }));
+            Color newColor = (Color)p_val;
+
+            m_material.color = new Color(newColor.r, newColor.g, newColor.b, newColor.a);
+         }));
     }
     // Update is called once per frame
     void Update()
