@@ -128,6 +128,8 @@ namespace GoogleARCore.Examples.Common
         /// </summary>
         private List<DetectedPlane> m_DetectedPlanes = new List<DetectedPlane>();
 
+        private bool m_modelAdded;
+
         /// <summary>
         /// Unity's Start() method.
         /// </summary>
@@ -142,6 +144,13 @@ namespace GoogleARCore.Examples.Common
             m_NotDetectedPlaneElapsed = DisplayGuideDelay - k_OnStartDelay;
         }
 
+        public void Awake()
+        {
+            EventManager.AddHandler(eEventEnum.ModelAdded, new System.Action<object>((p_obj) =>
+            {
+                m_modelAdded = true;
+            }));
+        }
         /// <summary>
         /// Unity's OnDestroy() method.
         /// </summary>
@@ -263,8 +272,8 @@ namespace GoogleARCore.Examples.Common
 
                 if (m_NotDetectedPlaneElapsed > OfferDetailedInstructionsDelay)
                 {
-                    m_SnackBarText.text = "Need Help?";
-                    m_OpenButton.SetActive(true);
+                    //m_SnackBarText.text = "Need Help?";
+                    //m_OpenButton.SetActive(true);
                 }
                 else
                 {
@@ -288,6 +297,15 @@ namespace GoogleARCore.Examples.Common
                 }
 
                 m_HandAnimation.enabled = false;
+                if(m_DetectedPlanes.Count > 0 && !m_modelAdded)
+                {
+                    m_SnackBar.SetActive(true);
+                    m_SnackBarText.text = "Touch a point on the grid to place the model.";
+                }
+                else
+                {
+                    m_SnackBar.SetActive(false);
+                }
             }
         }
 

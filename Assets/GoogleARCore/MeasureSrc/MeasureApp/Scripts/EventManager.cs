@@ -15,7 +15,8 @@ public enum eEventEnum
     DrawLine,
     AddMeasurePoint,
     ExitRuller,
-    DrawMeasureText
+    DrawMeasureText,
+    ModelAdded
   }
 public static class EventManager
 {

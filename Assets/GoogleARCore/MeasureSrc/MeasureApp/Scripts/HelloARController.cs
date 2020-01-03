@@ -154,6 +154,11 @@ namespace GoogleARCore.Examples.HelloAR
                 m_isChangeColorMode = false;
             }));
         }
+
+        public void MirrorModel()
+        {
+            m_andyObject.transform.rotation = new Quaternion(-1, m_andyObject.transform.rotation.y, m_andyObject.transform.rotation.z, m_andyObject.transform.rotation.w);
+        }
    
         private void switchModel(eModelEnum p_model)
         {
@@ -338,6 +343,9 @@ namespace GoogleARCore.Examples.HelloAR
                         // Instantiate Andy model at the hit pose.
                         m_andyObject = Instantiate(prefab, hit.Pose.position, hit.Pose.rotation);
                         m_modelAdded = true;
+
+                        EventManager.Broadcast(eEventEnum.ModelAdded, null);
+
                         m_zoomInButton.GetComponent<Button>().interactable = true;
                         m_zoomOutButton.GetComponent<Button>().interactable = true;
                     }
